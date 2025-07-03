@@ -9,13 +9,16 @@ import { allQuotes } from "@/lib/quotes";
 export default function Home() {
   const [topic, setTopic] = useState("");
   const [quotes, setQuotes] = useState<string[]>([]);
+  const [submittedTopic, setSubmittedTopic] = useState("");
 
 
   const handleSubmit = () => {
     const trimmed = topic.trim().toLowerCase();
     const q = allQuotes[trimmed] || ["No quotes found for this topic."];
     setQuotes(q);
+    setSubmittedTopic(trimmed);
   };
+
 
 
   return (
@@ -40,7 +43,7 @@ export default function Home() {
           Generate
         </Button>
 
-        <ul className="pt-4 space-y-2">
+        <ul key={submittedTopic} className="pt-4 space-y-2">
           {quotes.map((quote, idx) => (
             <motion.li
               key={idx}

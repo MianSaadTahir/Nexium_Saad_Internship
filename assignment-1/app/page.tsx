@@ -4,48 +4,51 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { allQuotes } from "@/lib/quotes";
 
 export default function Home() {
   const [topic, setTopic] = useState("");
   const [quotes, setQuotes] = useState<string[]>([]);
 
-  const allQuotes: { [key: string]: string[] } = {
-    motivation: [
-      "Push yourself, because no one else is going to do it for you.",
-      "Don’t watch the clock; do what it does. Keep going.",
-      "Great things never come from comfort zones.",
-    ],
-    success: [
-      "Success is not in what you have, but who you are.",
-      "The road to success is always under construction.",
-      "Success is walking from failure to failure with no loss of enthusiasm.",
-    ],
-  };
 
   const handleSubmit = () => {
-    const q = allQuotes[topic.toLowerCase()] || ["No quotes found for this topic."];
+    const trimmed = topic.trim().toLowerCase();
+    const q = allQuotes[trimmed] || ["No quotes found for this topic."];
     setQuotes(q);
   };
 
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-4 p-8">
-      <h1 className="text-3xl font-bold">Quote Generator</h1>
+    <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-6 space-y-4">
+        <h1 className="text-2xl font-semibold text-center">Quote Generator</h1>
 
-      <Input
-        placeholder="Enter a topic like motivation or success"
-        value={topic}
-        onChange={(e) => setTopic(e.target.value)}
-      />
+        <div className="space-y-2">
+          <label htmlFor="topic" className="text-sm font-medium">
+            Topic
+          </label>
+          <Input
+            id="topic"
+            placeholder="e.g., motivation, discipline ,creativity "
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+          />
+          <p className="text-xs text-muted-foreground">
+            What’s on your mind today?</p>
+        </div>
+        <Button className="w-full" onClick={handleSubmit} disabled={!topic.trim()}>
+          Generate
+        </Button>
 
-      <Button onClick={handleSubmit}>Generate Quotes</Button>
-
-      <ul className="mt-6 space-y-2">
-        {quotes.map((quote, idx) => (
-          <li key={idx} className="text-center text-lg text-muted-foreground">
-            “{quote}”
-          </li>
-        ))}
-      </ul>
+        <ul className="pt-4 space-y-2">
+          {quotes.map((quote, idx) => (
+            <li key={idx} className="text-gray-600 italic text-sm border-l-4 border-gray-300 pl-3">
+              “{quote}”
+            </li>
+          ))}
+        </ul>
+      </div>
     </main>
+
   );
 }

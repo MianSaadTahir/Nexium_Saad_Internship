@@ -1,6 +1,6 @@
 "use client";
 
-
+import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -42,9 +42,15 @@ export default function Home() {
 
         <ul className="pt-4 space-y-2">
           {quotes.map((quote, idx) => (
-            <li key={idx} className="text-gray-600 italic text-sm border-l-4 border-gray-300 pl-3">
+            <motion.li
+              key={idx}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: idx * 0.1 }}
+              className="text-gray-600 italic text-sm border-l-4 border-gray-300 pl-3"
+            >
               “{quote}”
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>

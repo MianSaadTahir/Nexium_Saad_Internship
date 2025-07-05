@@ -1,7 +1,7 @@
 # Quote Generator
 A motivational quote generator built with Next.js 15, ShadCN UI, Tailwind CSS, and Framer Motion.
 
-# Screenshot
+## Screenshot
 <img src="public/screenshot.png" alt="Screenshot" width="50%">
 
 ## Live Demo

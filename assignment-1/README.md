@@ -2,7 +2,7 @@
 A motivational quote generator built with Next.js 15, ShadCN UI, Tailwind CSS, and Framer Motion.
 
 # Screenshot
-<img src="public/screenshot.png" alt="Screenshot" width="75%">
+<img src="public/screenshot.png" alt="Screenshot" width="50%">
 
 ## Live Demo
 🔗 [View on Vercel](https://nexium-saad-assignment-1.vercel.app)

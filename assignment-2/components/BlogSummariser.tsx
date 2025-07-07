@@ -6,10 +6,23 @@ import { Button } from "@/components/ui/button";
 
 export default function BlogSummariser() {
     const [url, setUrl] = useState("");
+    const [originalBlog, setOriginalBlog] = useState("");
+
 
     const handleSummarise = () => {
         console.log("Submitted URL:", url);
+
+        // Simulated blog content
+        const fakeBlog = `
+          Artificial Intelligence (AI) is transforming industries worldwide.
+          From healthcare to finance, AI is enabling faster, smarter decisions.
+          With machine learning and deep learning, systems can now learn patterns,
+          predict outcomes, and automate tasks with high efficiency.
+        `;
+
+        setOriginalBlog(fakeBlog);
     };
+
 
     return (
         <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -23,6 +36,13 @@ export default function BlogSummariser() {
                 <Button onClick={handleSummarise} disabled={!url.trim()}>
                     Summarise Blog
                 </Button>
+                {originalBlog && (
+                    <div className="mt-6 bg-gray-100 p-4 rounded-md text-sm">
+                        <h2 className="text-lg font-medium mb-2">Original Blog Content</h2>
+                        <p className="text-gray-700 whitespace-pre-line">{originalBlog}</p>
+                    </div>
+                )}
+
             </div>
         </main>
     );

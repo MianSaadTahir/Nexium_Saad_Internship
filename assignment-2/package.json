@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@radix-ui/react-slot": "^1.2.3",
     "@supabase/supabase-js": "^2.50.3",
     "axios": "^1.10.0",
@@ -22,9 +23,15 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "shadcn": "^2.7.0",
+=======
+    "@mozilla/readability": "^0.6.0",
+>>>>>>> 3c22adf (feat: test api for blog url)
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dotenv": "^17.0.1",
+    "jsdom": "^26.1.0",
     "lucide-react": "^0.525.0",
+    "mongodb": "^6.17.0",
     "next": "15.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

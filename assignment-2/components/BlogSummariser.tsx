@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 export default function BlogSummariser() {
     const [url, setUrl] = useState("");
     const [originalBlog, setOriginalBlog] = useState("");
+    const [summary, setSummary] = useState("");
+
 
 
     const handleSummarise = () => {
@@ -21,6 +23,14 @@ export default function BlogSummariser() {
         `;
 
         setOriginalBlog(fakeBlog);
+        // Simulate summary logic (3 key points)
+        const fakeSummary = [
+            "✅ AI is revolutionizing many industries.",
+            "✅ It helps in making smarter, faster decisions.",
+            "✅ Machine learning allows systems to automate and learn patterns."
+        ].join("\n");
+
+        setSummary(fakeSummary);
     };
 
 
@@ -42,6 +52,13 @@ export default function BlogSummariser() {
                         <p className="text-gray-700 whitespace-pre-line">{originalBlog}</p>
                     </div>
                 )}
+                {summary && (
+                    <div className="mt-6 bg-green-50 p-4 rounded-md text-sm border border-green-200">
+                        <h2 className="text-lg font-semibold text-green-800 mb-2">AI Summary</h2>
+                        <p className="text-green-900 whitespace-pre-line">{summary}</p>
+                    </div>
+                )}
+
 
             </div>
         </main>

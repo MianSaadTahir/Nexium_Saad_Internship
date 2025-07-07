@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { dummyBlogs, summarizeBlog } from "@/lib/blog";
 
 export default function BlogSummariser() {
     const [url, setUrl] = useState("");
@@ -10,28 +11,40 @@ export default function BlogSummariser() {
     const [summary, setSummary] = useState("");
 
 
-
-    const handleSummarise = () => {
+    const handleSummarise = async () => {
         console.log("Submitted URL:", url);
 
-        // Simulated blog content
-        const fakeBlog = `
-          Artificial Intelligence (AI) is transforming industries worldwide.
-          From healthcare to finance, AI is enabling faster, smarter decisions.
-          With machine learning and deep learning, systems can now learn patterns,
-          predict outcomes, and automate tasks with high efficiency.
-        `;
+        try {
+            const res = await fetch(url);
+            const html = await res.text(); // ✅ Don't use .json()
 
-        setOriginalBlog(fakeBlog);
-        // Simulate summary logic (3 key points)
-        const fakeSummary = [
-            "✅ AI is revolutionizing many industries.",
-            "✅ It helps in making smarter, faster decisions.",
-            "✅ Machine learning allows systems to automate and learn patterns."
-        ].join("\n");
+            // Simulate content scraping
+            const text = html
+                .match(/<p[^>]*>(.*?)<\/p>/g)
+                ?.map((tag) => tag.replace(/<[^>]+>/g, "").trim())
+                .slice(0, 5)
+                .join(" ") || "No content found.";
 
-        setSummary(fakeSummary);
+            setOriginalBlog(text);
+
+            // Simulate summary logic
+            const fakeSummary = [
+                "✅ AI is transforming the cloud with agents.",
+                "✅ Agentic workflows simplify automation.",
+                "✅ The blog explains real-world examples."
+            ].join("\n");
+
+            setSummary(fakeSummary);
+        } catch (error) {
+            console.error("❌ Failed to fetch blog:", error);
+            setOriginalBlog("⚠️ Error fetching the blog.");
+            setSummary("");
+        }
     };
+
+
+
+
 
 
     return (
@@ -58,6 +71,7 @@ export default function BlogSummariser() {
                         <p className="text-green-900 whitespace-pre-line">{summary}</p>
                     </div>
                 )}
+
 
 
             </div>

@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
         return NextResponse.json({ summary });
     } catch (error: any) {
-        console.error('Error in Gemini summariser:', error.message || error);
+        console.error('Error in Gemini summarizer:', error.message || error);
         return NextResponse.json({ error: error.message || 'Something went wrong' }, { status: 500 });
     }
 }

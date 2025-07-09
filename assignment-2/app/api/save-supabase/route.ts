@@ -4,13 +4,13 @@ import { supabase } from '@/lib/supabase';
 
 export async function POST(req: Request) {
     try {
-        const { url, title, summary, urdu } = await req.json();
+        const { url, title, summary } = await req.json();
 
-        if (!url || !title || !summary || !urdu) {
-            return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
+        if (!url || !title || !summary) {
+            return NextResponse.json({ error: 'URL, title, and summary are required' }, { status: 400 });
         }
 
-        const { error } = await supabase.from('summaries').insert([{ url, title, summary, urdu }]);
+        const { error } = await supabase.from('summaries').insert([{ url, title, summary }]);
 
         if (error) {
             console.error(error);

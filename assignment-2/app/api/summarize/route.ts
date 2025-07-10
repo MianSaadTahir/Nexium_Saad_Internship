@@ -21,8 +21,8 @@ export async function POST(req: Request) {
         const summary = response.text();
 
         return NextResponse.json({ summary });
-    } catch (error: any) {
-        console.error('Error in Gemini summarizer:', error.message || error);
-        return NextResponse.json({ error: error.message || 'Something went wrong' }, { status: 500 });
+    } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : 'Unknown error';
+        return NextResponse.json({ error: message }, { status: 500 });
     }
 }

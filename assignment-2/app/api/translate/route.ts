@@ -20,7 +20,7 @@ const dictionary: Record<string, string> = {
     "saw": "دیکھا گیا",
     "rise": "عروج",
     "multi-author": "متعدد مصنفین والے",
-    "blogs": "بلاگز",
+    // "blogs": "بلاگز",
     "from": "سے",
     "various": "مختلف",
     "institutions": "ادارے",
@@ -60,7 +60,7 @@ const dictionary: Record<string, string> = {
     "blog": "بلاگ",
     "summary": "خلاصہ",
     "future": "مستقبل",
-    "tools": "اوزار",
+    // "tools": "اوزار",
     "code": "کوڈ",
     "important": "اہم",
     "understand": "سمجھنا",
@@ -72,7 +72,7 @@ const dictionary: Record<string, string> = {
     "article": "مضمون",
     "platform": "پلیٹ فارم",
     "project": "منصوبہ",
-    "features": "خصوصیات",
+    // "features": "خصوصیات",
     "content": "مواد",
     "generate": "پیدا کرنا",
     "summary.": "خلاصہ۔",
@@ -80,16 +80,16 @@ const dictionary: Record<string, string> = {
     "task": "کام",
     "tools.": "اوزار۔",
     "and": "اور",
-    "the": "یہ",
+    // "the": "یہ",
     "is": "ہے",
     "to": "کرنا",
     "of": "کا",
     "a": "ایک",
     "in": "میں",
-    "on": "پر",
+    // "on": "پر",
     "for": "کے لیے",
     "you": "آپ",
-    "with": "کے ساتھ",
+    // "with": "کے ساتھ",
 };
 
 function translateToUrdu(text: string): string {
@@ -112,7 +112,8 @@ export async function POST(req: Request) {
 
         const urdu = translateToUrdu(summary);
         return NextResponse.json({ urdu });
-    } catch (error: any) {
-        return NextResponse.json({ error: error.message || 'Something went wrong' }, { status: 500 });
+    } catch (error: unknown) {
+        const message = error instanceof Error ? error.message : 'Unknown error';
+        return NextResponse.json({ error: message }, { status: 500 });
     }
 }

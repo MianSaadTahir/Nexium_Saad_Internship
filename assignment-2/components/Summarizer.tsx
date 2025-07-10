@@ -111,7 +111,7 @@ export default function Summarizer() {
 
     return (
         <div className="max-w-3xl p-4 mx-auto space-y-6">
-            <Card>
+            <Card className="card-hover">
                 <CardContent className="p-4 space-y-2">
                     <h1 className="heading-title">Blog Summarizer</h1>
                     <Input
@@ -121,7 +121,7 @@ export default function Summarizer() {
                         className="!text-base mb-4"
                     />
                     <div className="flex justify-center">
-                        <Button onClick={handleSummarize} disabled={loading} className="btn-primary ">
+                        <Button onClick={handleSummarize} disabled={loading} className="btn-heading ">
                             {loading ? "Processing..." : "Summarize"}
                         </Button>
                     </div>
@@ -129,8 +129,8 @@ export default function Summarizer() {
             </Card>
 
             {content && (
-                <Card>
-                    <CardContent className="p-4">
+                <Card className="card-hover">
+                    <CardContent className="p-4 ">
                         <h2 className="sub-heading">Content</h2>
                         <Textarea readOnly value={content} className="h-48 overflow-y-auto !text-base resize-none" />
                     </CardContent>
@@ -138,7 +138,7 @@ export default function Summarizer() {
             )}
 
             {summary && (
-                <Card>
+                <Card className="card-hover">
                     <CardContent className="p-4">
                         <h2 className="sub-heading">Summary</h2>
                         <Textarea readOnly value={summary} className="h-40 overflow-y-auto resize-none !text-base" />
@@ -147,7 +147,7 @@ export default function Summarizer() {
             )}
 
             {urdu && (
-                <Card>
+                <Card className="card-hover">
                     <CardContent className="p-4">
                         <h2 className="sub-heading">Translation</h2>
                         <Textarea readOnly value={urdu} className="h-40 overflow-y-auto resize-none !text-base" />
@@ -166,10 +166,10 @@ export default function Summarizer() {
                     )}
 
                     <div className="flex justify-center gap-4">
-                        <Button onClick={handleSaveToMongo} className="btn-primary">
+                        <Button onClick={handleSaveToMongo} className="btn-save">
                             Save Blog
                         </Button>
-                        <Button onClick={handleSaveToSupabase} className="btn-primary">
+                        <Button onClick={handleSaveToSupabase} className="btn-save">
                             Save Summary
                         </Button>
                     </div>

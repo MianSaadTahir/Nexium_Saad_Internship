@@ -13,6 +13,9 @@ export default function Summarizer() {
     const [summary, setSummary] = useState("");
     const [urdu, setUrdu] = useState("");
     const [loading, setLoading] = useState(false);
+    const [statusMessage, setStatusMessage] = useState("");
+    const [statusType, setStatusType] = useState<"success" | "error" | "">("");
+
 
     const handleSummarize = async () => {
         setLoading(true);
@@ -66,14 +69,17 @@ export default function Summarizer() {
             const result = await res.json();
             if (res.ok) {
                 console.log("Mongo save success:", result.message);
-                alert("Saved full blog content to MongoDB");
+                setStatusMessage("✅ Content saved to MongoDB");
+                setStatusType("success");
             } else {
                 console.error("Mongo save failed:", result.error);
-                alert("Failed to save to MongoDB");
+                setStatusMessage("❌ Failed to save");
+                setStatusType("error");
             }
         } catch (err) {
             console.error("Error saving to MongoDB:", err);
-            alert("Mongo save error");
+            setStatusMessage("❌ MongoDB error");
+            setStatusType("error");
         }
     };
 
@@ -81,44 +87,52 @@ export default function Summarizer() {
         try {
             const res = await fetch("/api/save-supabase", {
                 method: "POST",
-                body: JSON.stringify({ url, title, summary }), // Urdu NOT included
+                body: JSON.stringify({ url, title, summary }),
             });
 
             const result = await res.json();
             if (res.ok) {
                 console.log("Supabase save success:", result.message);
-                alert("Saved summary to Supabase");
+                setStatusMessage("✅ Summary saved to Supabase");
+                setStatusType("success");
             } else {
                 console.error("Supabase save failed:", result.error);
-                alert("Failed to save to Supabase");
+                setStatusMessage("❌ Failed to save");
+                setStatusType("error");
             }
         } catch (err) {
             console.error("Error saving to Supabase:", err);
-            alert("Supabase save error");
+            setStatusMessage("❌ Supabase error");
+            setStatusType("error");
         }
     };
 
 
+
     return (
-        <div className="max-w-3xl mx-auto space-y-6 p-4">
+        <div className="max-w-3xl p-4 mx-auto space-y-6">
             <Card>
                 <CardContent className="p-4 space-y-2">
+                    <h1 className="heading-title">Blog Summarizer</h1>
                     <Input
                         placeholder="Enter blog URL..."
                         value={url}
                         onChange={(e) => setUrl(e.target.value)}
+                        className="!text-base mb-4"
                     />
-                    <Button onClick={handleSummarize} disabled={loading}>
-                        {loading ? "Processing..." : "Summarize"}
-                    </Button>
+                    <div className="flex justify-center">
+                        <Button onClick={handleSummarize} disabled={loading} className="btn-primary ">
+                            {loading ? "Processing..." : "Summarize"}
+                        </Button>
+                    </div>
                 </CardContent>
             </Card>
 
             {content && (
                 <Card>
                     <CardContent className="p-4">
-                        <h2 className="font-bold mb-2">Scraped Content</h2>
-                        <Textarea readOnly value={content} className="h-48" />
+                        <h2 className="sub-heading">Content</h2>
+                        <Textarea readOnly value={content} className="h-48 overflow-y-auto !text-base resize-none" />
                     </CardContent>
                 </Card>
             )}
@@ -126,8 +140,8 @@ export default function Summarizer() {
             {summary && (
                 <Card>
                     <CardContent className="p-4">
-                        <h2 className="font-bold mb-2">AI Summary</h2>
-                        <Textarea readOnly value={summary} className="h-32" />
+                        <h2 className="sub-heading">Summary</h2>
+                        <Textarea readOnly value={summary} className="h-40 overflow-y-auto resize-none !text-base" />
                     </CardContent>
                 </Card>
             )}
@@ -135,17 +149,33 @@ export default function Summarizer() {
             {urdu && (
                 <Card>
                     <CardContent className="p-4">
-                        <h2 className="font-bold mb-2">Urdu Translation</h2>
-                        <Textarea readOnly value={urdu} className="h-32" />
+                        <h2 className="sub-heading">Translation</h2>
+                        <Textarea readOnly value={urdu} className="h-40 overflow-y-auto resize-none !text-base" />
                     </CardContent>
                 </Card>
             )}
             {summary && (
-                <div className="flex gap-4 justify-center">
-                    <Button onClick={handleSaveToMongo}>Save Blog to MongoDB</Button>
-                    <Button onClick={handleSaveToSupabase}>Save Summary to Supabase</Button>
+                <div className="flex flex-col items-center gap-2">
+                    {statusMessage && (
+                        <p
+                            className={`text-sm ${statusType === "success" ? "text-green-600" : "text-red-500 "
+                                }`}
+                        >
+                            {statusMessage}
+                        </p>
+                    )}
+
+                    <div className="flex justify-center gap-4">
+                        <Button onClick={handleSaveToMongo} className="btn-primary">
+                            Save Blog
+                        </Button>
+                        <Button onClick={handleSaveToSupabase} className="btn-primary">
+                            Save Summary
+                        </Button>
+                    </div>
                 </div>
             )}
+
         </div>
     );
 }

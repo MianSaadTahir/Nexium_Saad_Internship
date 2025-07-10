@@ -108,3 +108,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .btn-primary {
+    @apply px-20 py-6 mt-1 text-lg text-white transition duration-300 ease-in-out rounded-md md:px-10 bg-primary hover:bg-primary/60;
+  }
+}
+
+/* globals.css */
+
+.heading-title {
+  @apply mb-6 text-3xl font-bold text-center md:text-4xl;
+}
+
+.sub-heading {
+  @apply mb-6 text-2xl font-bold text-center md:text-3xl;
+}

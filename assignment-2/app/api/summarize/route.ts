@@ -17,7 +17,7 @@ export async function POST(req: Request) {
             `Summarize the following blog in 4-5 lines:\n\n${content}`
         );
 
-        const response = await result.response;
+        const response = result.response;
         const summary = response.text();
 
         return NextResponse.json({ summary });

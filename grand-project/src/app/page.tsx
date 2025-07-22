@@ -1,28 +1,30 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 
 export default function Home() {
   const [userEmail, setUserEmail] = useState<string | null>(null)
+  const router = useRouter()
 
   useEffect(() => {
-    const getUser = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser()
+    const checkUser = async () => {
+      const { data, error } = await supabase.auth.getUser()
 
-      if (user) {
-        setUserEmail(user.email ?? null)
+      if (!error && data.user) {
+        setUserEmail(data.user.email ?? null)
+      } else {
+        router.push('/login') // 🔁 redirect if not logged in
       }
     }
 
-    getUser()
-  }, [])
+    checkUser()
+  }, [router])
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
-    window.location.href = '/login'
+    router.push('/login')
   }
 
   return (
@@ -30,16 +32,22 @@ export default function Home() {
       <div className="text-center space-y-4">
         {userEmail ? (
           <>
-            <h1 className="text-2xl font-bold">Welcome, {userEmail}</h1>
+            <h1 className="text-2xl font-bold text-black">Welcome, {userEmail}</h1>
+            <a
+              href="/generate"
+              className="inline-block mt-4 bg-green-500 text-black px-4 py-2 rounded-md hover:bg-green-600"
+            >
+              Generate a Recipe
+            </a>
             <button
               onClick={handleLogout}
-              className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+              className="bg-red-500 text-black px-4 py-2 rounded-md hover:bg-red-600 transition"
             >
               Logout
             </button>
           </>
         ) : (
-          <p>Loading...</p>
+          <p className='text-black'>Checking authentication...</p>
         )}
       </div>
     </main>

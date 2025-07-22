@@ -25,19 +25,19 @@ export default function LoginPage() {
     return (
         <main className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
             <form onSubmit={handleLogin} className="w-full max-w-md bg-white shadow-md rounded-xl p-6 space-y-4">
-                <h1 className="text-2xl font-bold text-center">Login</h1>
+                <h1 className="text-2xl font-bold text-center text-black">Login</h1>
                 <input
                     type="email"
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                 />
                 <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+                    className="w-full bg-blue-600 text-black py-2 rounded-md hover:bg-blue-700 transition"
                 >
                     {status === 'loading' ? 'Sending...' : 'Send Magic Link'}
                 </button>

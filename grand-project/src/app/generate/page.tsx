@@ -14,14 +14,14 @@ export default function GeneratePage() {
         setRecipe(null)
 
         try {
-            const res = await fetch('https://miansaadtahir.app.n8n.cloud/webhook/generate-recipe', {
+            const res = await fetch('https://saadtahirproton.app.n8n.cloud/webhook-test/generate-recipe', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ingredients, diet }),
             })
 
             const data = await res.json()
-            setRecipe(data.recipe || 'No recipe generated')
+            setRecipe(data.output || 'No recipe generated')
         } catch (err) {
             console.error('Error generating recipe:', err)
             setRecipe('Something went wrong. Please try again.')

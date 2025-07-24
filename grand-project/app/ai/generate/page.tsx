@@ -9,6 +9,8 @@ export default function GeneratePage() {
   const [diet, setDiet] = useState("");
   const [loading, setLoading] = useState(false);
   const [recipe, setRecipe] = useState<string | null>(null);
+  const [savedMessage, setSavedMessage] = useState("");
+  const [prefSavedMessage, setPrefSavedMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,22 +30,58 @@ export default function GeneratePage() {
       const data = await res.json();
       const output = data.output || "No recipe generated";
       setRecipe(output);
-
-      // Get current user
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-
-      //  Save to Supabase if logged in
-      if (user?.email) {
-        await saveRecipe(user.email, output);
-      }
     } catch (err) {
       console.error("Error generating recipe:", err);
       setRecipe("Something went wrong. Please try again.");
     }
 
     setLoading(false);
+  };
+  const handleSave = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!recipe) return;
+
+    try {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (user?.email) {
+        await saveRecipe(user.email, recipe);
+        setSavedMessage("Recipe saved to Supabase");
+      } else {
+        setSavedMessage("You must be logged in to save.");
+      }
+    } catch (err) {
+      console.error("Error saving recipe:", err);
+      setSavedMessage("Failed to save recipe.");
+    }
+  };
+  const handleSavePreferences = async (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("/api/saveInput", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ingredients, diet }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setPrefSavedMessage("Preferences saved to MongoDB");
+      } else {
+        setPrefSavedMessage(data.error || "Failed to save preferences.");
+      }
+    } catch (err) {
+      console.error("Failed to save preferences:", err);
+      setPrefSavedMessage("Failed to save preferences.");
+    }
   };
 
   return (
@@ -89,11 +127,35 @@ export default function GeneratePage() {
         >
           {loading ? "Generating..." : "Generate Recipe"}
         </button>
-
         {recipe && (
-          <div className="mt-4 p-4 border rounded-md bg-gray-50 whitespace-pre-wrap text-black">
-            {recipe}
-          </div>
+          <>
+            <div className="mt-4 p-4 border rounded-md bg-gray-50 whitespace-pre-wrap text-black">
+              <pre className="whitespace-pre-wrap break-words">{recipe}</pre>
+            </div>
+            <button
+              onClick={handleSave}
+              className="mt-2 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
+            >
+              Save Recipe
+            </button>
+
+            {savedMessage && (
+              <p className="text-green-600 text-center mt-2">{savedMessage}</p>
+            )}
+            <button
+              type="button"
+              onClick={handleSavePreferences}
+              className="mt-2 w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700"
+            >
+              Save Preferences
+            </button>
+
+            {prefSavedMessage && (
+              <p className="text-purple-700 text-center mt-2">
+                {prefSavedMessage}
+              </p>
+            )}
+          </>
         )}
       </form>
     </main>

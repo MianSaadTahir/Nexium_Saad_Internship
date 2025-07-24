@@ -3,13 +3,15 @@ import { MongoClient } from "mongodb";
 
 export async function POST(req: NextRequest) {
   try {
-    const { ingredients, diet } = await req.json();
+    const { ingredients, diet, userEmail, userName } = await req.json();
 
     const client = await MongoClient.connect(process.env.MONGODB_URI!);
     const db = client.db("grand_project");
     const collection = db.collection("preferences");
 
     await collection.insertOne({
+      userEmail,
+      userName,
       ingredients,
       diet,
       createdAt: new Date(),

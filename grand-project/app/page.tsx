@@ -6,16 +6,22 @@ import { supabase } from "@/lib/supabase";
 
 export default function Home() {
   const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [userName, setUserName] = useState<string | null>(null);
   const router = useRouter();
-
   useEffect(() => {
     const checkUser = async () => {
       const { data, error } = await supabase.auth.getUser();
 
       if (!error && data.user) {
         setUserEmail(data.user.email ?? null);
+
+        // Get the name from localStorage
+        const storedName = localStorage.getItem("userName");
+        if (storedName) {
+          setUserName(storedName);
+        }
       } else {
-        router.push("/login"); //  redirect if not logged in
+        router.push("/login");
       }
     };
 
@@ -33,7 +39,7 @@ export default function Home() {
         {userEmail ? (
           <>
             <h1 className="text-2xl font-bold text-black">
-              Welcome, {userEmail}
+              Welcome, {userName ?? userEmail}
             </h1>
             <a
               href="/ai/generate"

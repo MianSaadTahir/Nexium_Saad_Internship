@@ -45,9 +45,10 @@ export default function GeneratePage() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
+      const storedName = localStorage.getItem("userName") || "";
 
       if (user?.email) {
-        await saveRecipe(user.email, recipe);
+        await saveRecipe(user.email, storedName, recipe);
         setSavedMessage("Recipe saved to Supabase");
       } else {
         setSavedMessage("You must be logged in to save.");
@@ -63,12 +64,19 @@ export default function GeneratePage() {
     e.preventDefault();
 
     try {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      const userEmail = user?.email || "";
+      const userName = localStorage.getItem("userName") || "";
+
       const res = await fetch("/api/saveInput", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ingredients, diet }),
+        body: JSON.stringify({ ingredients, diet, userEmail, userName }),
       });
 
       const data = await res.json();

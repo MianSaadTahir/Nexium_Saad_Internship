@@ -14,7 +14,7 @@ export default function GeneratePage() {
         setRecipe(null)
 
         try {
-            const res = await fetch('https://saadtahirproton.app.n8n.cloud/webhook-test/generate-recipe', {
+            const res = await fetch('https://saadtahirproton.app.n8n.cloud/webhook/generate-recipe', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ ingredients, diet }),

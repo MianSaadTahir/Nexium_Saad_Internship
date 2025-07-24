@@ -15,7 +15,7 @@ export default function Home() {
       if (!error && data.user) {
         setUserEmail(data.user.email ?? null)
       } else {
-        router.push('/login') // 🔁 redirect if not logged in
+        router.push('/login') //  redirect if not logged in
       }
     }
 
@@ -34,7 +34,7 @@ export default function Home() {
           <>
             <h1 className="text-2xl font-bold text-black">Welcome, {userEmail}</h1>
             <a
-              href="/generate"
+              href="/ai/generate"
               className="inline-block mt-4 bg-green-500 text-black px-4 py-2 rounded-md hover:bg-green-600"
             >
               Generate a Recipe

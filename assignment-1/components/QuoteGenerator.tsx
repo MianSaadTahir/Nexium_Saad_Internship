@@ -88,29 +88,40 @@ export default function QuoteGenerator() {
   return (
     <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-6 space-y-4">
-        <h1 className="text-2xl font-semibold text-center">Quote Generator</h1>
-        <div className="flex flex-wrap justify-center gap-2 mt-2">
-          {topics.map((t) => (
-            <button
-              key={t}
-              onClick={() => {
-                setTopic(t);
-                handleSubmitFromButton(t);
-              }}
-              className="bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-medium py-1 px-3 rounded transition"
-            >
-              {t}
-            </button>
-          ))}
+        <div className="text-center space-y-1">
+          <h1 className="text-2xl font-semibold">Quotivate</h1>
+          <p className="text-sm text-gray-500">
+            Let your mind spark inspiration
+          </p>
+        </div>
+        <div className="space-y-2">
+          <p className="text-sm font-medium text-gray-700">
+            What kind of boost do you need today?
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-2">
+            {topics.map((t) => (
+              <button
+                key={t}
+                onClick={() => {
+                  setTopic(t);
+                  handleSubmitFromButton(t);
+                }}
+                className="bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-medium py-1 px-3 rounded transition"
+              >
+                {t}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="topic" className="text-sm font-medium">
-            What’s on your mind today?
+          <label htmlFor="topic" className="text-sm font-medium text-gray-700">
+            Enter a topic or select one from above
           </label>
           <Input
             id="topic"
-            placeholder="Enter a topic or select one from above"
+            placeholder="e.g, Wisdom, Growth, Joy"
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
           />
@@ -125,6 +136,11 @@ export default function QuoteGenerator() {
         </Button>
 
         <ul key={generationId} className="pt-4 space-y-2">
+          {quotes.length === 0 && (
+            <p className="text-center text-gray-400 text-sm italic">
+              Your quotes will appear here ✨
+            </p>
+          )}
           {quotes.map((quote, idx) => (
             <motion.li
               key={idx}

@@ -138,7 +138,7 @@ export default function QuoteGenerator() {
           Generate
         </Button>
       </div>
-      <div className="mt-6 w-full max-w-3xl space-y-4">
+      <div className="mt-6 w-full max-w-3xl space-y-4 mb-6">
         {quotes.length === 0 && (
           <p className="text-center text-gray-400 text-sm italic">
             Your quotes will appear here ✨
@@ -160,21 +160,27 @@ export default function QuoteGenerator() {
               “{quote}”
             </p>
 
-            <button
-              onClick={async () => {
-                await navigator.clipboard.writeText(quote);
-                setCopiedIndex(idx);
-                setTimeout(() => setCopiedIndex(null), 4000);
-              }}
-              className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition"
-              aria-label="Copy quote"
-            >
-              {copiedIndex === idx ? (
-                <Check className="w-5 h-5 text-green-600 transition-transform duration-200 scale-110" />
-              ) : (
-                <ClipboardCopy className="w-5 h-5 text-gray-500" />
-              )}
-            </button>
+            <div className="absolute top-4 right-4 group">
+              <button
+                onClick={async () => {
+                  await navigator.clipboard.writeText(quote);
+                  setCopiedIndex(idx);
+                  setTimeout(() => setCopiedIndex(null), 3000);
+                }}
+                className="p-2 cursor-pointer rounded-full hover:bg-gray-100 transition"
+                aria-label="Copy quote"
+              >
+                {copiedIndex === idx ? (
+                  <Check className="w-5 h-5 text-green-600 transition-transform duration-200 scale-110" />
+                ) : (
+                  <ClipboardCopy className="w-5 h-5 text-gray-500" />
+                )}
+              </button>
+
+              <span className="absolute -top-8 right-1/2 translate-x-1/2 bg-black text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-80 transition-opacity duration-200 delay-500 pointer-events-none z-10 whitespace-nowrap">
+                {copiedIndex === idx ? "Copied" : "Copy"}
+              </span>
+            </div>
           </motion.div>
         ))}
       </div>

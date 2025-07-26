@@ -141,7 +141,7 @@ export default function QuoteGenerator() {
       <div className="mt-6 w-full max-w-3xl space-y-4 mb-6">
         {quotes.length === 0 && (
           <p className="text-center text-gray-400 text-sm italic">
-            Your quotes will appear here ✨
+            💡 A few words can change your day{" "}
           </p>
         )}
         {quotes.map((quote, idx) => (
@@ -150,11 +150,11 @@ export default function QuoteGenerator() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              duration: 0.6,
-              delay: idx * 0.6,
+              duration: 0.5,
+              delay: idx * 0.5,
               ease: "easeOut",
             }}
-            className="relative bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500"
+            className=" card-hover relative bg-white rounded-lg shadow-md p-6 border-l-4"
           >
             <p className="text-lg font-medium text-gray-800 italic pr-7">
               “{quote}”

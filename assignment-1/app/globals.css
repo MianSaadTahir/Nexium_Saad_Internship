@@ -120,3 +120,21 @@
     @apply bg-background text-foreground;
   }
 }
+/* @layer components {
+  .quote-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .quote-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+} */
+
+.card-hover {
+  @apply transform transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] 
+         hover:scale-[1.03] hover:shadow-xl 
+         border border-border rounded-2xl 
+         bg-card text-card-foreground;
+  will-change: transform, box-shadow;
+}

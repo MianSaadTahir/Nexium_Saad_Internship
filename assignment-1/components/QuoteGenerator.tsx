@@ -5,10 +5,13 @@ import { Button } from "@/components/ui/button";
 import { useState, useRef } from "react";
 import { allQuotes } from "@/lib/quotes";
 import { motion } from "framer-motion";
+import { ClipboardCopy, Check } from "lucide-react";
 
 export default function QuoteGenerator() {
   const [topic, setTopic] = useState("");
   const [quotes, setQuotes] = useState<string[]>([]);
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
   const [, setSubmittedTopic] = useState("");
   const [generationId, setGenerationId] = useState(0);
   const topics = Object.keys(allQuotes);
@@ -86,7 +89,7 @@ export default function QuoteGenerator() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <main className="min-h-screen bg-gray-50 flex flex-col items-center pt-10 px-4">
       <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-6 space-y-4">
         <div className="text-center space-y-1">
           <h1 className="text-2xl font-semibold">Quotivate</h1>
@@ -95,7 +98,7 @@ export default function QuoteGenerator() {
           </p>
         </div>
         <div className="space-y-2">
-          <p className="text-sm font-medium text-gray-700">
+          <p className="text-sm font-medium text-center text-gray-700">
             What kind of boost do you need today?
           </p>
 
@@ -117,7 +120,7 @@ export default function QuoteGenerator() {
 
         <div className="space-y-2">
           <label htmlFor="topic" className="text-sm font-medium text-gray-700">
-            Enter a topic or select one from above
+            Enter a topic or select from above
           </label>
           <Input
             id="topic"
@@ -134,25 +137,46 @@ export default function QuoteGenerator() {
         >
           Generate
         </Button>
-
-        <ul key={generationId} className="pt-4 space-y-2">
-          {quotes.length === 0 && (
-            <p className="text-center text-gray-400 text-sm italic">
-              Your quotes will appear here ✨
-            </p>
-          )}
-          {quotes.map((quote, idx) => (
-            <motion.li
-              key={idx}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: idx * 0.1 }}
-              className="text-gray-600 italic text-sm border-l-4 border-gray-300 pl-3"
-            >
+      </div>
+      <div className="mt-6 w-full max-w-3xl space-y-4">
+        {quotes.length === 0 && (
+          <p className="text-center text-gray-400 text-sm italic">
+            Your quotes will appear here ✨
+          </p>
+        )}
+        {quotes.map((quote, idx) => (
+          <motion.div
+            key={`${generationId}-${idx}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: idx * 0.6,
+              ease: "easeOut",
+            }}
+            className="relative bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500"
+          >
+            <p className="text-lg font-medium text-gray-800 italic pr-7">
               “{quote}”
-            </motion.li>
-          ))}
-        </ul>
+            </p>
+
+            <button
+              onClick={async () => {
+                await navigator.clipboard.writeText(quote);
+                setCopiedIndex(idx);
+                setTimeout(() => setCopiedIndex(null), 4000);
+              }}
+              className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 transition"
+              aria-label="Copy quote"
+            >
+              {copiedIndex === idx ? (
+                <Check className="w-5 h-5 text-green-600 transition-transform duration-200 scale-110" />
+              ) : (
+                <ClipboardCopy className="w-5 h-5 text-gray-500" />
+              )}
+            </button>
+          </motion.div>
+        ))}
       </div>
     </main>
   );

@@ -1,7 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
+
+html,
+body {
+  font-family: "Mona Sans", sans-serif;
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -120,16 +125,6 @@
     @apply bg-background text-foreground;
   }
 }
-/* @layer components {
-  .quote-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .quote-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-  }
-} */
 
 .card-hover {
   @apply transform transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] 

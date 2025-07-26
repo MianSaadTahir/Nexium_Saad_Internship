@@ -92,13 +92,13 @@ export default function QuoteGenerator() {
     <main className="min-h-screen bg-gray-50 flex flex-col items-center pt-10 px-4">
       <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-6 space-y-4">
         <div className="text-center space-y-1">
-          <h1 className="text-2xl font-semibold">Quotivate</h1>
-          <p className="text-sm text-gray-500">
+          <h1 className="text-4xl font-semibold tracking-tight">Quotivate</h1>
+          <p className="text-base text-gray-500">
             Let your mind spark inspiration
           </p>
         </div>
         <div className="space-y-2">
-          <p className="text-sm font-medium text-center text-gray-700">
+          <p className="text-base font-semibold text-center text-gray-700">
             What kind of boost do you need today?
           </p>
 
@@ -110,7 +110,7 @@ export default function QuoteGenerator() {
                   setTopic(t);
                   handleSubmitFromButton(t);
                 }}
-                className="bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm font-medium py-1 px-3 rounded transition"
+                className="bg-gray-200 hover:bg-gray-300 text-gray-700 text-base font-medium py-1 px-3 rounded transition"
               >
                 {t}
               </button>
@@ -119,8 +119,11 @@ export default function QuoteGenerator() {
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="topic" className="text-sm font-medium text-gray-700">
-            Enter a topic or select from above
+          <label
+            htmlFor="topic"
+            className="text-base font-medium text-gray-700"
+          >
+            Enter a topic or select from above:
           </label>
           <Input
             id="topic"
@@ -131,16 +134,16 @@ export default function QuoteGenerator() {
         </div>
 
         <Button
-          className="w-full"
+          className=" w-full text-lg h-11"
           onClick={handleSubmit}
           disabled={!topic.trim()}
         >
           Generate
         </Button>
       </div>
-      <div className="mt-6 w-full max-w-3xl space-y-4 mb-6">
+      <div className="mt-6 w-full max-w-3xl space-y-4 mb-11">
         {quotes.length === 0 && (
-          <p className="text-center text-gray-400 text-sm italic">
+          <p className="text-center text-gray-400 text-base ">
             💡 A few words can change your day{" "}
           </p>
         )}
@@ -156,7 +159,7 @@ export default function QuoteGenerator() {
             }}
             className=" card-hover relative bg-white rounded-lg shadow-md p-6 border-l-4"
           >
-            <p className="text-lg font-medium text-gray-800 italic pr-7">
+            <p className="text-xl font-semibold text-gray-800 italic pr-7 leading-relaxed">
               “{quote}”
             </p>
 

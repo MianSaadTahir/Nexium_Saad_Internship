@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍳 AI-Powered Recipe Generator
+A full-stack AI web app that creates unique, personalized recipes based on your ingredients and dietary needs. It uses **n8n + Google AI Agent** to generate delicious meals, and stores preferences in MongoDB and recipes in Supabase.
 
-## Getting Started
+## 📸 Screenshots
+<img src="public/1.png" alt="login" >
+<img src="public/2.png" alt="dashboard">
+<img src="public/3.png" alt="generate recipe">
+<img src="public/4.png" alt="save to db">
+<img src="public/5.png" alt="n8n workflow">
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔗 Live Demo  
+🔗 [View on Vercel](https://nexium-saad-grand-project.vercel.app)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
+- 🍅 **Ingredient & Diet Input**
+- 🤖 **AI recipe generation using n8n + Google AI**
+- 🔁 **Webhook-powered logic with cleaned prompts**
+- 📋 **Save dietary preferences** to MongoDB
+- 📦 **Save generated recipes** to Supabase
+- 🔒 **Magic link login** via Supabase Auth
+- 🧾 **Recipe history dashboard**
+- 🌗 **UI designed with Tailwind**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS + Custom Components
+- **Authentication**: Supabase (Magic Link Auth)
+- **AI Platform**: Google Generative AI (Gemini via n8n)
+- **AI Orchestration**: n8n (Webhook, Function Node, AI Agent)
+- **Database**:
+  - 📦 MongoDB (user preferences)
+  - 📄 Supabase (recipes)
+- **Deployment**: Vercel
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repo `git clone https://github.com/MianSaadTahir/Nexium_Saad_Internship.git`
+2. Move to project directory `cd .\grand-project\`
+3. Set up `.env` with your Supabase, and MongoDB credentials
+4. Install dependencies `npm install`
+5. Run locally `npm run dev`

@@ -86,7 +86,7 @@ export default function Home() {
             </h2>
             <p className="text-center text-gray-600 max-w-2xl mx-auto mb-4">
               Discover recipes crafted by artificial intelligence! Just tell us
-              your ingredients and dietary needs, and we’ll generate delicious, unique meals just for you.
+              your ingredients and dietary needs, and we’ll generate delicious, unique meals just for you. 👨‍🍳
             </p>
 
             {/* CTA Button */}

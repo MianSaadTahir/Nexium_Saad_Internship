@@ -12,9 +12,7 @@ export default function LoginPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-
     localStorage.setItem("userName", name);
-
     const { error } = await supabase.auth.signInWithOtp({ email });
 
     if (error) {
@@ -26,36 +24,46 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-4 space-y-6">
-      <h1 className="text-3xl font-bold text-black text-center mb-20">
-        AI-Powered Recipe Generator
-      </h1>
+    <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 px-4 py-12">
+      {/* Heading & Description */}
+      <div className="text-center mb-10">
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+          AI-Powered Recipe Generator
+        </h1>
+        <p className="text-gray-600 max-w-xl mx-auto">
+         🧑‍🍳 Effortlessly create delicious meals with AI. <br></br> Just log in, tell us what ingredients you have and your dietary needs,<br></br> and let our AI chef cook up something special for you! 
+        </p>
+      </div>
 
+      {/* Login Card */}
       <form
         onSubmit={handleLogin}
-        className="w-full max-w-md bg-white shadow-md rounded-xl p-6 space-y-4"
+        className="card-hover-effect w-full max-w-md bg-white shadow-lg rounded-xl p-8 space-y-5"
       >
-        <h2 className="text-2xl font-bold text-center text-black">Login</h2>
+        <h2 className="text-2xl font-semibold text-center text-gray-800 ">Login</h2>
+
         <input
           type="text"
-          placeholder="Enter your name"
+          placeholder="Your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
         />
+
         <input
           type="email"
-          placeholder="Enter your email"
+          placeholder="Email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800"
         />
+
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full bg-blue-600 text-black py-2 rounded-md hover:bg-blue-700 transition"
+          className="w-full bg-blue-600 text-white font-medium py-2 rounded-md hover:bg-blue-700 transition cursor-pointer"
         >
           {status === "loading" ? "Sending..." : "Send Magic Link"}
         </button>

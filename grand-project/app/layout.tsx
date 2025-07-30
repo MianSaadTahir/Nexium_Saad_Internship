@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI-Powered Web App",
+  title: "AI-Powered Recipe Generator",
   description: "A web app that generates recipes using AI",
 };
 

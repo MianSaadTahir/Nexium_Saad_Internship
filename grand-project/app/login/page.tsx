@@ -7,15 +7,12 @@ import { supabase } from "@/lib/supabase";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
 
-    // Save name locally to use after login
     localStorage.setItem("userName", name);
 
     const { error } = await supabase.auth.signInWithOtp({ email });
@@ -29,12 +26,16 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gray-100 p-4">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-4 space-y-6">
+      <h1 className="text-3xl font-bold text-black text-center mb-20">
+        AI-Powered Recipe Generator
+      </h1>
+
       <form
         onSubmit={handleLogin}
         className="w-full max-w-md bg-white shadow-md rounded-xl p-6 space-y-4"
       >
-        <h1 className="text-2xl font-bold text-center text-black">Login</h1>
+        <h2 className="text-2xl font-bold text-center text-black">Login</h2>
         <input
           type="text"
           placeholder="Enter your name"

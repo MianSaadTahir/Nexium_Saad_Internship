@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
@@ -110,12 +110,12 @@ export default function GeneratePage() {
       <nav className="w-full flex items-center justify-between px-6 py-4 border-b bg-white shadow-sm">
         <h1 className="text-xl font-bold text-gray-800">Generate Recipe</h1>
         <div className="space-x-4">
-          <a
-            href="/"
-            className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition font-medium cursor-pointer"
-          >
-            Dashboard
-          </a>
+<Link
+  href="/"
+  className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition font-medium cursor-pointer"
+>
+  Dashboard
+</Link>
           <button
             onClick={handleLogout}
             className="bg-red-600 text-white px-4 py-1 rounded-md hover:bg-red-700 transition font-medium cursor-pointer"
@@ -131,7 +131,7 @@ export default function GeneratePage() {
           AI-Powered Recipe Generator
         </h1>
         <p className="text-center text-gray-600 max-w-2xl mx-auto mb-6">
-          Enter your ingredients and select a dietary preference.
+          Enter your ingredients and select a dietary preference. ✨
         </p>
 
         <form

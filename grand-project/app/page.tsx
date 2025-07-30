@@ -3,11 +3,18 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
+type Recipe = {
+  id: number;
+  title: string;
+  recipe_text: string;
+  user_email: string;
+};
 
 export default function Home() {
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const [userName, setUserName] = useState<string | null>(null);
-  const [recipes, setRecipes] = useState<any[]>([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+
   const router = useRouter();
 
   useEffect(() => {

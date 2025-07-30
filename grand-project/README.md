@@ -23,18 +23,6 @@ A full-stack AI web app that creates unique, personalized recipes based on your 
 - 🌗 **UI designed with Tailwind**
 
 
-## 🛠️ Tech Stack
-- **Framework**: Next.js 15 (App Router)
-- **Styling**: Tailwind CSS + Custom Components
-- **Authentication**: Supabase (Magic Link Auth)
-- **AI Platform**: Google Generative AI (Gemini via n8n)
-- **AI Orchestration**: n8n (Webhook, Function Node, AI Agent)
-- **Database**:
-  - 📦 MongoDB (user preferences)
-  - 📄 Supabase (recipes)
-- **Deployment**: Vercel
-
-
 ## ⚙️ Usage
 
 1. Clone the repo `git clone https://github.com/MianSaadTahir/Nexium_Saad_Internship.git`
@@ -42,3 +30,15 @@ A full-stack AI web app that creates unique, personalized recipes based on your 
 3. Set up `.env` with your Supabase, and MongoDB credentials
 4. Install dependencies `npm install`
 5. Run locally `npm run dev`
+
+
+## 🛠️ Tech Stack
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS + Custom Components
+- **Authentication**: Supabase (Magic Link Auth)
+- **AI Platform**: Google Generative AI (Gemini via n8n)
+- **AI Workflow**: n8n (Webhook, Function Node, AI Agent)
+- **Database**:
+  - 📦 MongoDB (user preferences)
+  - 📄 Supabase (recipes)
+- **Deployment**: Vercel

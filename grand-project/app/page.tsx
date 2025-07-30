@@ -60,13 +60,13 @@ export default function Home() {
         <div className="space-x-4">
           <a
             href="/ai/generate"
-            className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition font-medium cursor-pointer"
+            className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition font-medium cursor-pointer"
           >
             Generate
           </a>
           <button
             onClick={handleLogout}
-            className="bg-red-500 text-white px-4 py-1 rounded-md hover:bg-red-600 transition font-medium cursor-pointer"
+            className="bg-red-600 text-white px-4 py-1 rounded-md hover:bg-red-700 transition font-medium cursor-pointer"
           >
             Logout
           </button>
@@ -93,7 +93,7 @@ export default function Home() {
             <div className="text-center mt-4">
               <a
                 href="/ai/generate"
-                className="inline-block bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600 transition font-medium"
+                className="inline-block bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition font-medium"
               >
                 Generate a Recipe
               </a>
@@ -109,7 +109,7 @@ export default function Home() {
                 {recipes.map((recipe) => (
                   <div
                     key={recipe.id}
-                    className="bg-white border rounded-xl p-4 shadow-md relative"
+                    className="card-hover-effect bg-white border rounded-xl p-4 shadow-md relative"
                   >
                     <h2 className="text-lg font-semibold text-gray-800 mb-2">
                       {recipe.title}

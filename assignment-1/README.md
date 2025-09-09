@@ -7,16 +7,16 @@ A motivational quote generator built with Next.js 15, ShadCN UI, and Tailwind CS
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Usage](#usage)
-- [Technologies Used](#technologies-used)
 - [Live Preview](#live-preview)
+- [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
 
 ## Features
 
-- Random motivational quote generation
-- Clean UI built with ShadCN components
-- Smooth animations using Framer Motion
-- Responsive layout powered by Tailwind CSS
+- Random motivational quote generation.
+- Clean UI built with ShadCN components.
+- Smooth animations using Framer Motion.
+- Responsive layout powered by Tailwind CSS.
 
 ## Screenshots
 
@@ -32,8 +32,12 @@ A motivational quote generator built with Next.js 15, ShadCN UI, and Tailwind CS
    `npm install`
 4. Start the development server:  
    `npm run dev`
-5. Open the project in your browser at:  
+5. Open live server in your browser at:  
    `http://localhost:3000`
+
+## Live Preview
+
+Click [here](https://nexium-saad-assignment-1.vercel.app) to go live.
 
 ## Technologies Used
 
@@ -43,10 +47,6 @@ A motivational quote generator built with Next.js 15, ShadCN UI, and Tailwind CS
 - Tailwind CSS
 - ShadCN UI
 - Framer Motion
-
-## Live Preview
-
-Click [here](https://nexium-saad-assignment-1.vercel.app) to go live.
 
 ## Contributing
 

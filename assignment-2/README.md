@@ -24,7 +24,6 @@ A full-stack AI-powered web app that scrapes blogs in real-time, summarizes them
 
 <img src="public/light1.png" alt="Screenshot" width="75%">  
 <img src="public/light2.png" alt="Screenshot" width="75%">  
-<img src="public/dark1.png" alt="Screenshot" width="75%">  
 <img src="public/dark2.png" alt="Screenshot" width="75%">  
 
 ## Live Preview

@@ -11,9 +11,7 @@ A full-stack AI-powered web app that scrapes blogs in real-time, summarizes them
 - [Contributing](#contributing)  
 
 ## Features
-
-- Blog URL input  
-- Real-time scraping using JSDOM  
+- Real-time blog scraping using JSDOM  
 - Summarization via Gemini AI  
 - Urdu translation of summaries  
 - Save full content to MongoDB  
@@ -28,7 +26,7 @@ A full-stack AI-powered web app that scrapes blogs in real-time, summarizes them
 
 ## Live Preview
 
-Click [here](https://nexium-saad-assignment-2.vercel.app) to go live.
+Click [here](https://nexium-saad-assignment-2.vercel.app) to view live demo.
 
 ## Technologies Used
 
@@ -52,7 +50,7 @@ Click [here](https://nexium-saad-assignment-2.vercel.app) to go live.
    `npm install`
 4. Start the development server:  
    `npm run dev`
-5. Open the local address shown in the terminal `(e.g., http://localhost:3000)` in your browser to go live.
+5. Open the local address shown in the terminal `(e.g., http://localhost:3000)` in your browser
 
 ## Contributing
 

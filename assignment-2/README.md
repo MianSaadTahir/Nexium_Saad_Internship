@@ -1,6 +1,5 @@
 # Blog Summarizer
-
-A full-stack AI-powered web app that scrapes blogs in real-time, summarizes them using Google Gemini AI, and translates summaries to Urdu. Users can save the original content and summary to MongoDB and Supabase respectively.
+A full-stack AI-powered web app that scrapes blogs in real-time, summarizes them using Google Gemini AI, and translates the summaries into Urdu. The original content can be saved to MongoDB, while the Urdu summaries can be stored in Supabase.
 
 ## Table of Contents
 

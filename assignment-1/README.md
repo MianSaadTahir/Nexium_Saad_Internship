@@ -13,10 +13,10 @@ A motivational quote generator to make your day.
 
 ## Features
 
-- Random motivational quotes generation.
-- Clean UI built with ShadCN components.
-- Smooth animations using Framer Motion.
-- Responsive layout powered by Tailwind CSS.
+- Random motivational quotes generation
+- Clean UI built with ShadCN components
+- Smooth animations using Framer Motion
+- Responsive layout powered by Tailwind CSS
 
 ## Screenshots
 
@@ -24,7 +24,7 @@ A motivational quote generator to make your day.
 
 ## Live Preview
 
-Click [here](https://nexium-saad-assignment-1.vercel.app) to go live.
+Click [here](https://nexium-saad-assignment-1.vercel.app) to view live demo.
 
 ## Technologies Used
 
@@ -45,7 +45,7 @@ Click [here](https://nexium-saad-assignment-1.vercel.app) to go live.
    `npm install`
 4. Start the development server:  
    `npm run dev`
-5. Open the local address shown in the terminal `(e.g., http://localhost:3000)` in your browser to go live.
+5. Open the local address shown in the terminal `(e.g., http://localhost:3000)` in your browser
    
 ## Contributing
 

@@ -1,38 +1,62 @@
-# 📚 Blog Summarizer 
+# Blog Summarizer
 
 A full-stack AI-powered web app that scrapes blogs in real-time, summarizes them using Google Gemini AI, and translates summaries to Urdu. Users can save the original content and summary to MongoDB and Supabase respectively.
 
+## Table of Contents
 
-## 📸 Screenshots
+- [Features](#features)  
+- [Screenshots](#screenshots)  
+- [Live Preview](#live-preview)  
+- [Technologies Used](#technologies-used)  
+- [Usage](#usage)  
+- [Contributing](#contributing)  
 
-<img src="public/light1.png" alt="Screenshot" width="1918">
-<img src="public/light2.png" alt="Screenshot" width="1919">
-<img src="public/dark1.png" alt="Screenshot" width="1919">
-<img src="public/dark2.png" alt="Screenshot" width="1919">
+## Features
 
+- Blog URL input  
+- Real-time scraping using JSDOM  
+- Summarization via Gemini AI  
+- Urdu translation of summaries  
+- Save full content to MongoDB  
+- Save summaries to Supabase  
+- Light/Dark mode toggle  
 
-## 🔗 Live Demo
-🔗 [View on Vercel](https://nexium-saad-assignment-2.vercel.app)
+## Screenshots
 
-## 🚀 Features
+<img src="public/light1.png" alt="Screenshot" width="75%">  
+<img src="public/light2.png" alt="Screenshot" width="75%">  
+<img src="public/dark1.png" alt="Screenshot" width="75%">  
+<img src="public/dark2.png" alt="Screenshot" width="75%">  
 
-- 🔍 **Blog URL input**
-- ✂️ **Real-time scraping** using `JSDOM`
-- 🧠 **Summarization** via Gemini AI
-- 🌐 **Urdu translation** of summaries
-- 💾 **Save full content to MongoDB**
-- ☁️ **Save summary to Supabase**
-- 🌙 **Light/Dark mode toggle**
+## Live Preview
 
-## 🛠️ Tech Stack
+Click [here](https://nexium-saad-assignment-2.vercel.app) to go live.
 
-- **Framework**: Next.js 15 (App Router)
-- **Styling**: Tailwind CSS + ShadCN UI
-- **Dark Mode**: next-themes
-- **State Management**: React Hooks
-- **AI Summarization**: Google Generative AI (Gemini)
-- **Blog Scraping**: jsdom + @mozilla/readability
-- **Databases**:
-  - 📦 MongoDB (blog content)
-  - 🔐 Supabase (summary)
-- **Deployment**: Vercel
+## Technologies Used
+
+- Next.js 15
+- React  
+- TypeScript  
+- Tailwind CSS  
+- ShadCN UI  
+- next-themes
+- Gemini AI 
+- MongoDB
+- Supabase 
+
+## Usage
+
+1. Clone the repository:  
+   `git clone https://github.com/MianSaadTahir/Nexium_Saad_Internship.git`
+2. Navigate to the project folder:  
+   `cd .\assignment-2\`
+3. Install dependencies:  
+   `npm install`
+4. Start the development server:  
+   `npm run dev`
+5. Open the local address shown in the terminal `(e.g., http://localhost:3000)` in your browser to go live.
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to check out the [issues page](https://github.com/MianSaadTahir/Nexium_Saad_Internship/issues) for more information.

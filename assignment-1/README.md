@@ -1,4 +1,4 @@
-# Quote Generator
+# Quotivate
 
 A motivational quote generator built with Next.js 15, ShadCN UI, and Tailwind CSS.
 

@@ -29,7 +29,7 @@ A full-stack AI web app that creates unique, personalized recipes based on your 
 
 ## Live Preview
 
-Click [here](https://nexium-saad-grand-project.vercel.app) to go live.
+Click [here](https://nexium-saad-grand-project.vercel.app) to view live demo.
 
 ## Technologies Used
 

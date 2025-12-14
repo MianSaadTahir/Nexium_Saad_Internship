@@ -8,7 +8,8 @@ A full-stack AI-powered web app that scrapes blogs in real-time, summarizes them
 - [Live Preview](#live-preview)  
 - [Technologies Used](#technologies-used)  
 - [Usage](#usage)  
-- [Contributing](#contributing)  
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 - Real-time blog scraping using JSDOM  
@@ -56,3 +57,8 @@ Click [here](https://nexium-saad-assignment-2.vercel.app) to view live demo.
 
 Contributions, issues, and feature requests are welcome!  
 Feel free to check out the [issues page](https://github.com/MianSaadTahir/Nexium_Saad_Internship/issues) for more information.
+
+
+## License
+
+This project is open source and available under the MIT [License](https://github.com/MianSaadTahir/Nexium_Saad_Internship/blob/main/LICENSE.txt).

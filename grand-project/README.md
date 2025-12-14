@@ -59,7 +59,7 @@ Click [here](https://nexium-saad-grand-project.vercel.app) to view live demo.
 ## Contributing
 
 Contributions, issues, and feature requests are welcome.  
-Feel free to check out the [issues page](https://github.com/MianSaadTahir/Nexium_Saad_Internship/issues) for more information.
+Feel free to check out the [issues page](https://github.com/MianSaadTahir/Nexium_Saad_Internship/issues).
 
 ## License
 

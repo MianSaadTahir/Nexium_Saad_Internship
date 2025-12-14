@@ -10,7 +10,8 @@ A full-stack AI web app that creates unique, personalized recipes based on your 
 - [Technologies Used](#technologies-used)  
 - [Usage](#usage)  
 - [Contributing](#contributing)  
-
+- [License](#license)
+  
 ## Features
 - Secure authentication with Supabase magic link login  
 - AI-powered recipe generation using n8n with Google Gemini AI  
@@ -59,3 +60,7 @@ Click [here](https://nexium-saad-grand-project.vercel.app) to view live demo.
 
 Contributions, issues, and feature requests are welcome.  
 Feel free to check out the [issues page](https://github.com/MianSaadTahir/Nexium_Saad_Internship/issues) for more information.
+
+## License
+
+This project is open source and available under the MIT [License](https://github.com/MianSaadTahir/Nexium_Saad_Internship/blob/main/LICENSE).

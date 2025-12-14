@@ -10,6 +10,7 @@ A motivational quote generator to make your day.
 - [Technologies Used](#technologies-used)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [License](#license)
 
 ## Features
 
@@ -50,4 +51,9 @@ Click [here](https://nexium-saad-assignment-1.vercel.app) to view live demo.
 ## Contributing
 
 Contributions, issues, and feature requests are welcome!  
-Feel free to check out the [issues page](https://github.com/MianSaadTahir/Nexium_Saad_Internship/issues) for more information.
+Feel free to check out the [issues page](https://github.com/MianSaadTahir/Nexium_Saad_Internship/issues).
+
+
+## License
+
+This project is open source and available under the MIT [License](https://github.com/MianSaadTahir/Nexium_Saad_Internship/blob/main/LICENSE.txt).

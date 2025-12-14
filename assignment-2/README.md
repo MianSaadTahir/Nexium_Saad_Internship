@@ -61,4 +61,4 @@ Feel free to check out the [issues page](https://github.com/MianSaadTahir/Nexium
 
 ## License
 
-This project is open source and available under the MIT [License](https://github.com/MianSaadTahir/Nexium_Saad_Internship/blob/main/LICENSE.txt).
+This project is open source and available under the MIT [License](https://github.com/MianSaadTahir/Nexium_Saad_Internship/blob/main/LICENSE).
